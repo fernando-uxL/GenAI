@@ -1,0 +1,2 @@
+# Place your Gemini API key here:
+GEMINI_API_KEY= AIzaSyD3EFgi_WxRLlhy32GGe1ULcNVMUkUh7c0
