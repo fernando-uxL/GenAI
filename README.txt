@@ -1,42 +1,42 @@
+====================================================
+📘 AI FILE ORGANIZER (GEMINI API)
+====================================================
 
-AI Summarizer (Windows) — Text-based PDFs Only
-==============================================
+🧠 OVERVIEW
+------------
+This program uses Google’s Gemini API to automatically:
+- Summarize PDF or TXT documents.
+- Suggest a folder name based on the document content.
+- Move the file into that suggested folder.
+- Record extracted keywords in a log file.
+- Display results through a clean Tkinter interface (with HTML formatting).
 
-This package builds a single-file Windows executable (.exe) that summarizes text-based PDFs (and .txt files)
-using Google's Gemini API. It does NOT include OCR — scanned image PDFs won't be readable.
+----------------------------------------------------
+⚙️ SYSTEM REQUIREMENTS
+----------------------------------------------------
+- Python 3.9 or newer
+- Internet connection (for Gemini API)
+- A valid Gemini API key
 
-Files in this folder:
-- AI_Summarizer.py     -> Combined GUI (Tkinter) + local backend (FastAPI)
-- requirements.txt     -> Python dependencies
-- config.txt           -> Put your Gemini API key here (or set GEMINI_API_KEY env var)
-- icon.ico             -> App icon
-- build_windows.bat    -> One-click build script (creates dist/AI_Summarizer.exe)
+----------------------------------------------------
+🧩 1. CREATE A PYTHON ENVIRONMENT
+----------------------------------------------------
 
-Quick Start (Run from Source)
------------------------------
-1) Install Python 3.10+
-2) Open a terminal in this folder and run:
-   python -m venv .venv
-   .venv\Scripts\activate
-   pip install -r requirements.txt
-3) Edit config.txt and set your API key on the GEMINI_API_KEY line.
-4) Run:
-   python AI_Summarizer.py
+Option A — Using Conda (recommended)
+------------------------------------
+conda create -n AIOrganizer python=3.10
+conda activate AIOrganizer
 
-Build Single Executable (.exe)
-------------------------------
-1) Open a terminal in this folder and run:
-   build_windows.bat
-2) Your EXE will be in the "dist" folder:
-   dist\AI_Summarizer.exe
+Option B — Using venv (if you don’t use Conda)
+-----------------------------------------------
+python -m venv AIOrganizer
+AIOrganizer\Scripts\activate
 
-Usage
------
-- Launch the app, click "Choose File…", pick a text-based PDF or .txt file.
-- The app sends the extracted text (first ~12k chars) to Gemini for a concise summary
-  and a suggested folder path. The response is shown in a window.
+You should now see (AIOrganizer) before your terminal prompt.
 
-API Key
--------
-- Preferred: set the environment variable GEMINI_API_KEY
-- Or: open config.txt and set GEMINI_API_KEY=YOUR_API_KEY_HERE
+----------------------------------------------------
+📦 2. INSTALL REQUIRED LIBRARIES
+----------------------------------------------------
+Run this command while your environment is active:
+
+pip install google-generativeai fastapi uvicorn requests
